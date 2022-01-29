@@ -1,8 +1,13 @@
 # Employee Tracker
 
-In this assignment, I created 
+In this assignment, I created a command-line application that a company can use to manage their employee database.
 
 ## Built With
+
+* JavaScript
+* Node.js
+* Inquirer
+* SQL
 
 ## User Story
 
