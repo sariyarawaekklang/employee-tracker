@@ -1,14 +1,11 @@
 {
-  "dependencies": {
-    "inquirer": "^8.2.0"
-  },
   "name": "employee-tracker",
   "description": "In this assignment, I created a command-line application that a company can use to manage their employee database.",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/sariyarawaekklang/employee-tracker/issues"
   },
-  "homepage": "https://github.com/sariyarawaekklang/employee-tracker#readme"
+  "homepage": "https://github.com/sariyarawaekklang/employee-tracker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  }
 }
