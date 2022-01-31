@@ -4,7 +4,7 @@ const cTable = require('console.table');
 const db = require('./db/connection');
 
 // questions for user input
-const questions = () => {
+const options = () => {
     return inquirer.prompt([
     {
         type: 'list',
@@ -23,32 +23,32 @@ const questions = () => {
     }
     ])
     .then((answer) => {
-        const { questions } = answer;
-        if (questions === 'View All Departments') {
-
+        const { options } = answer;
+        if (options === 'View All Departments') {
+            viewDepartments();
         }
-        if (questions === 'View All Jobs') {
-
+        if (options === 'View All Jobs') {
+            viewJobs();
         }
-        if (questions === 'View All Employees') {
-
+        if (options === 'View All Employees') {
+            viewEmployees();
         }
-        if (questions === 'Add a Department') {
-
+        if (options === 'Add a Department') {
+            addDepartment();
         }
-        if (questions === 'Add a Job') {
-
+        if (options === 'Add a Job') {
+            addJob();
         }
-        if (questions === 'Add an Employee') {
-
+        if (options === 'Add an Employee') {
+            addEmployee();
         }
-        if (questions === 'Update an Employee Job') {
-
+        if (options === 'Update an Employee Job') {
+            updateEmployee();
         }
-        if (questions === 'Exit') {
-            console.log('Thank you for using Employee Tracker!');
+        if (options === 'Exit') {
+            exitTracker();
         }
     });
 };
 
-questions();
+options();
