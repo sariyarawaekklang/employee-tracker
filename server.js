@@ -52,12 +52,34 @@ const options = () => {
 };
 
 viewDepartments = () => {
-    console.log('Showing all departments');
+    console.log('Now showing all departments...');
     const sql = `SELECT * FROM department`;
 
-    db.query(sql, (err, rows) => {
+    db.query(sql, (err, res) => {
         if (err) throw err
-        console.table(rows);
+        console.table(res);
+        options();
+    });
+};
+
+viewJobs = () => {
+    console.log('Now showing all jobs...');
+    const sql = `SELECT * FROM job`;
+
+    db.query(sql, (err, res) => {
+        if (err) throw err
+        console.table(res);
+        options();
+    });
+};
+
+viewEmployees = () => {
+    console.log('Now showing all employees...');
+    const sql = `SELECT * FROM employee`;
+
+    db.query(sql, (err, res) => {
+        if (err) throw err
+        console.table(res);
         options();
     });
 };
