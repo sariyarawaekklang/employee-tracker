@@ -53,11 +53,13 @@ const options = () => {
 
 viewDepartments = () => {
     console.log('Showing all departments');
-    const sql = `SELECT * FROM departments`
+    const sql = `SELECT * FROM department`;
 
-    connection.promise().query(sql, (err, rows) => {
-        if (err) throw (err);
+    db.query(sql, (err, rows) => {
+        if (err) throw err
         console.table(rows);
         options();
     });
 };
+
+options();
