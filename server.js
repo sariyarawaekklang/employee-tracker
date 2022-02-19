@@ -51,4 +51,13 @@ const options = () => {
     });
 };
 
-options();
+viewDepartments = () => {
+    console.log('Showing all departments');
+    const sql = `SELECT * FROM departments`
+
+    connection.promise().query(sql, (err, rows) => {
+        if (err) throw (err);
+        console.table(rows);
+        options();
+    });
+};
