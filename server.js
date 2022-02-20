@@ -84,4 +84,53 @@ viewEmployees = () => {
     });
 };
 
+addDepartment = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'addDepartment',
+            message: 'What is the department you would like to add?'
+        }
+    ])
+    .then(answer => {
+        const sql = `INSERT INTO department (name) VALUES (?)`;
+
+        db.query(sql, answer.addDepartment, (err, res) => {
+            if (err) throw err;
+            console.log(answer.addDepartment + ' has been added to deparments...');
+            viewDepartments();
+        });
+    });
+};
+
+addJob = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'What is the title of the job you would like to add?'
+        },
+        {
+            type: 'input',
+            name: 'salary',
+            message: 'What is the salary of this job?'
+        },
+        {
+            type: 'input',
+            name: 'deptId',
+            message: 'Please provide the department number of this job.'
+        }
+    ])
+    .then(answer => {
+        const sql = `INSERT INTO job (title, salary, department_id) VALUES (?,?,?)`
+        const params = [answer.title, answer.salary, answer.deptId];
+
+        db.query(sql, params, (err, res) => {
+            if (err) throw err;
+            console.log(answer.addJob + ' has been add to jobs...');
+            viewJobs();
+        });
+    });
+};
+
 options();
