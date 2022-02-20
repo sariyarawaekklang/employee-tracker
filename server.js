@@ -17,7 +17,7 @@ const options = () => {
             'Add a Department',
             'Add a Job',
             'Add an Employee',
-            // "Update an Employee's Job",
+            //"Update an Employee's Job",
             'Exit'
         ]
     }
@@ -175,12 +175,12 @@ updateEmployee = () => {
             type: 'list',
             name: 'employee',
             message: 'Which employee would you like to update?'
-            // choices: 
+            //choices: 
         }
     ])
     .then(answer => {
         const sql = `UPDATE employee SET job_id = ? WHERE id = ?`;
-        // const params = 
+        //const params = 
 
         db.query(sql, params, (err, res) => {
             if (err) throw err;
