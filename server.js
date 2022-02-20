@@ -122,13 +122,48 @@ addJob = () => {
         }
     ])
     .then(answer => {
-        const sql = `INSERT INTO job (title, salary, department_id) VALUES (?,?,?)`
+        const sql = `INSERT INTO job (title, salary, department_id) VALUES (?,?,?)`;
         const params = [answer.title, answer.salary, answer.deptId];
 
         db.query(sql, params, (err, res) => {
             if (err) throw err;
-            console.log(answer.addJob + ' has been add to jobs...');
+            console.log(answer.addJob + ' has been added to jobs...');
             viewJobs();
+        });
+    });
+};
+
+addEmployee = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'firstName',
+            message: "What is the employee's first name?"
+        },
+        {
+            type: 'input',
+            name: 'lastName',
+            message: "What is the employee's last name?"
+        },
+        {
+            type: 'input',
+            name: 'jobId',
+            message: 'Please provide the job number for this employee.'
+        },
+        {
+            type: 'input',
+            name: 'managerId',
+            message: 'Please provide a manager number for this employee.'
+        }
+    ])
+    .then(answer => {
+        const sql = `INSERT INTO employee (first_name, last_name, job_id, manager_id) VALUES (?,?,?,?)`;
+        const params = [answer.firstName, answer.lastName, answer.jobId, answer.managerId];
+
+        db.query(sql, params, (err, res) => {
+            if (err) throw err;
+            console.log(answer.addEmployee + ' has been added to employees...');
+            viewEmployees();
         });
     });
 };
