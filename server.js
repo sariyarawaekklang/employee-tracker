@@ -17,7 +17,7 @@ const options = () => {
             'Add a Department',
             'Add a Job',
             'Add an Employee',
-            'Update an Employee Job',
+            // "Update an Employee's Job",
             'Exit'
         ]
     }
@@ -42,9 +42,9 @@ const options = () => {
         if (options === 'Add an Employee') {
             addEmployee();
         }
-        if (options === 'Update an Employee Job') {
-            updateEmployee();
-        }
+        //if (options === "Update an Employee's Job") {
+        //    updateEmployee();
+        //}
         if (options === 'Exit') {
             exitTracker();
         }
@@ -168,16 +168,28 @@ addEmployee = () => {
     });
 };
 
+/*
 updateEmployee = () => {
     inquirer.prompt([
         {
             type: 'list',
             name: 'employee',
-            message: 'Which employee would you like to update?',
-            choices: viewEmployees
+            message: 'Which employee would you like to update?'
+            // choices: 
         }
-    ]);
+    ])
+    .then(answer => {
+        const sql = `UPDATE employee SET job_id = ? WHERE id = ?`;
+        // const params = 
+
+        db.query(sql, params, (err, res) => {
+            if (err) throw err;
+            console.log('The employee has been updated...');
+            viewEmployees();
+        });
+    });
 };
+*/
 
 exitTracker = () => {
     console.log('Thank you for using Employee Tracker!');
