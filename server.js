@@ -168,4 +168,21 @@ addEmployee = () => {
     });
 };
 
+updateEmployee = () => {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'employee',
+            message: 'Which employee would you like to update?',
+            choices: viewEmployees
+        }
+    ]);
+};
+
+exitTracker = () => {
+    console.log('Thank you for using Employee Tracker!');
+
+    process.exit();
+};
+
 options();
